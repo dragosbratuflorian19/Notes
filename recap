@@ -1,0 +1,84 @@
+1. Solve hive's metastore issue
+2. Most important HDFS properties
+3. Look for a specific pattern inside a list of items
+4. Set the version of spark at 2 globally
+5. Unzip a file on MacOS
+6. Check the file size in CLI
+7. Check the number of records in CLI
+8. List files in Hadoop
+9. List files in Hadoop including subdirectories
+10. Check the file size in Hadoop fs
+11. Copy files from local to hdfs (2 ways)
+12. Where are compression formats found?
+13. Start spark.sql session on a specific port nr
+14. Set the metastore for hive
+15. Start the pyspark shell with 5 configured parameters
+16. Force spark to use x threads
+17. RDD app
+	a. Create an RDD from a list
+	b. Read orders, products and order_items and split the files into 10 tasks
+	c. Read products from json
+	d. Join orders and order_items, inner and left (count the orders doesn't exist in the other table)
+	e. Get top 3 per each category (use filter, map and flatmap)
+	f. Get top 3 different prices using also a function
+	g. Reduce the status column into a string of sums (sum the first 5 records)
+		h. Count the status column by key
+	i. Group orders by status and sort them by price, first 3 prices per each status
+	j. Use aggregate by key by adding the revenue per each order, and add one column to count the sum factors
+	k. Double sort products by price in descending order and id in ascending
+	l. Rank products 2 different ways (take first 5)
+	m. Take orders from 1312 and 1401 and make union, intersection and minus on the order id
+	n. Save the Top 3 into a hdfs file, 3 parts, compression snappy
+	o. Save as json, gzip
+	p. Save a avro
+18. DF app
+	a. Create the spark object
+	b. Reading as text, split into words and count each word (the df's flatmap)
+	c. Read orders file as general format
+	d. Show first 5 orders in full
+	e. Create a table from orders df
+	f. Read dbratu.order_items hive table
+	g. Substract from orders df the first 8 characters from date column
+	h. Add a new column to orders df, the year and month concatenated as a 6 figures int
+	i. See first 3 characters from orders df's date column as sql statement
+	j. Filter by status "COMPLETE" or "CLOSED" ("| or in")
+	k. Filter by date, only April month
+	l. Join orders df and order items df, but only filtered by "CLOSED"
+	m. Count the distinct orders statuses
+	n. Group order items by order id and sum it up
+	o. Group order items by order id and sum it up, but with new column name
+	p. Count each status from orders
+	q. Join orders and order_items, group them by id and date, sum the revenue with alias and sort by date asc, id desc
+19. Windowed app
+	a. View windowed fct to view revenue per each id
+	b. Count orders per each date in orders
+	c. View windowed from employees per each department, the sum of salaries, minimum salary, average salary, and the percentage of each salary, rounded by 2
+	d. View windowed lead and lag of each department
+	e. Rank by department, by salary 3 ways
+20. Create an propreties file
+21. Create a Spark app that will take the daily revenue
+22. Hive app
+	a. Create bdragos database and use it
+	b. Create orders and order items tables
+	c. Create orders table as orc
+	d. Load data into tables orders, order items and orders orc
+	e. Preview first 10 records
+	f. View information about table, 2 ways
+	g. See first 3 characters from date column
+	h. Check the index where a character can be found in a column
+	i. Check with like and rlike if some information can be found in a column
+	j. Pad one column with #
+	k. Cast year and month from date as int
+	l. Show the date as "MM-dd/YYYY"
+	m. Transform into unix a date
+	n. Use case for CLOSED AND COMPLETE orders as no action, and for the rest as action/risky
+	o. Use nvl for missing data as "Missing data"
+	p. Typecast as MMYYYY and int
+	q. Join orders and order_items
+	r. Group by status and count
+	s. Sum by order id in orders , only for Closed and Complete, and show only >10000, and sort
+	t. Use windowing: lead/lag, ranking and aggregations
+23. Create a table from a raw text file in pyspark
+24. Create a temporary table from a df and show data
+25. Insert a dataframe into a table
+
