@@ -1,0 +1,44 @@
+/Users/dbratu/Documents/big_data/data-master/retail_db/orders
+
+1.  Q: Three properties of HDFS?
+    A: fs.defaultFS, dfs.blocksize, dfs.replication
+2.  Q: Search for a specific pattern in linux cli
+    A: ls -ltr|grep something
+3.  Q: How to always run Spark version 2?
+    A: export SPARK_MAJOR_VERSION=2
+4.  Q: Check the number of records for a file
+    A: wc -l /Users/dbratu/Documents/big_data/data-master/retail_db/*/*
+5.  Q: Show the last lines in hadoop CLI
+    A: hadoop fs -tail /Users/dbratu/Documents/big_data/data-master/retail_db/orders
+6.  Q: List files in hadoop CLI including subdirectories
+    A: hadoop fs -ls -R
+7.  Q: Get and move to hadoop fs
+    A: hadoop fs -get source dest, hadoop fs -copyToLocal source dest
+8.  Q: Three compression codecs?
+    A: Gzip, Default, Snappy
+9.  Q: Setting the hive metastore
+    A: set hive.metastore.warehouse.dir
+10. Q: Start pyspark with 5 configurations.
+    A: pyspark --master local --conf spark.ui.port=4040 --num-executors 2 --executor-cores 2 --executor-memory 512M
+11. Q: Force spark to use x threads
+    A: spark.conf.set('spark.sql.shuffle.partitions', x)
+12. Q: Read a file as an RDD in pyspark shell
+    A: orders = sc.textFile("/Users/dbratu/Documents/big_data/data-master/retail_db/orders", numPartitions=2)
+13. Q: Create an RDD from a list in pyspark
+    A: sql.parallelize(my_list)
+14. Q: Read 4 different formats using sqLContext
+    A: sqlContext.read.text(path), sqlContext.read.json(path), sqlContext.read.orc(path), sqlContext.read.parquet(path)
+15. Q: 
+    A:
+16. Q:
+    A:
+17. Q:
+    A:
+18. Q:
+    A:
+19. Q:
+    A:
+20. Q:
+    A:
+21. Q:
+    A:
