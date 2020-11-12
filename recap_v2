@@ -28,17 +28,59 @@
     A: sql.parallelize(my_list)
 14. Q: Read 4 different formats using sqLContext
     A: sqlContext.read.text(path), sqlContext.read.json(path), sqlContext.read.orc(path), sqlContext.read.parquet(path)
-15. Q: 
+15. Q: Use map function to split the records delimited
+    A: orders_m = orders.map(lambda x: x.split(','))
+16. Q: Use flatmap to split 3 sentences and get all the words together
     A:
-16. Q:
+lista = ['dragos bratu', 'manchester united', 'data science']
+l = sc.parallelize(lista)
+l_fm = l.flatMap(lambda x: x.split(' '))
+17. Q: Filter the orders by CLOSED status
+    A: o_f = orders.filter(lambda x: x.split(',')[-1] == "CLOSED")
+18. Q: Make an inner join between orders and order_items
     A:
-17. Q:
+o_m = orders.map(lambda x: (int(x.split(',')[0]), x))
+oi_m = order_items.map(lambda x: (int(x.split(',')[1]), x))
+o_oi = o_m.join(oi_m)
+19. Q: Which are the functions for left and right?
+    A: rdd1.leftOuterJoin(rdd2), rdd1.rightOuterJoin(rdd2)
+20. Q: Given a list of names, reduce all of the into a single word
     A:
-18. Q:
+l = ['dragos bratu', 'manchester united', 'data science']
+l.flatMap(lambda x: x.split(' ')).reduce(lambda x, y: x + y)
+21. Q: Count the orders by status
+    A: for item in orders.map(lambda x: (x.split(',')[-1], x)).countByKey().items(): print(item)
+23. Q: Group order items by order id
     A:
-19. Q:
+oi_m = order_items.map(lambda x: (int(x.split(',')[1]), float(x.split(',')[4]))).groupByKey()
+for item in oi_m.take(10): print(item[0], list(item[1]))
+22. Q: Reduce the order items to their sum
     A:
-20. Q:
+oi_m = order_items.map(lambda x: (int(x.split(',')[1]), float(x.split(',')[4])))
+oi_m_g = oi_m.reduceByKey(lambda x, y: x + y)
+22. Q:
     A:
-21. Q:
+22. Q:
+    A:
+22. Q:
+    A:
+22. Q:
+    A:
+22. Q:
+    A:
+22. Q:
+    A:
+22. Q:
+    A:
+22. Q:
+    A:
+22. Q:
+    A:
+22. Q:
+    A:
+22. Q:
+    A:
+22. Q:
+    A:
+22. Q:
     A:
